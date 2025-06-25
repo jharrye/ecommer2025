@@ -1,0 +1,265 @@
+/* 🔄 Reset básico para eliminar márgenes y rellenos predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que el padding y border no aumenten el tamaño del elemento */
+}
+
+/* 🌐 Estilos generales del body */
+body {
+  font-family: 'Open Sans', sans-serif; /* Fuente legible y moderna */
+  line-height: 1.6; /* Espaciado entre líneas para facilitar la lectura */
+  color: #333; /* Color de texto gris oscuro */
+  background-color: #fff; /* Fondo blanco */
+}
+
+/* 📌 Navbar - barra de navegación superior fija */
+.navbar {
+  position: fixed; /* Se mantiene fija en la parte superior al hacer scroll */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+  padding: 15px 30px; /* Espaciado interno */
+  display: flex; /* Flexbox para alinear contenido */
+  justify-content: space-between; /* Espacio entre logo y enlaces */
+  align-items: center; /* Alineación vertical centrada */
+  z-index: 10; /* Se mantiene encima del resto del contenido */
+}
+
+/* 🏷️ Estilos del logo */
+.navbar .logo {
+  color: #fff; /* Color blanco */
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+  font-size: 1.8rem;
+}
+
+/* 🔗 Contenedor de enlaces de navegación */
+.nav-links {
+  list-style: none; /* Elimina viñetas */
+  display: flex; /* Enlaces en fila */
+  gap: 20px; /* Espacio entre enlaces */
+}
+
+/* 🔗 Estilos para los enlaces individuales */
+.nav-links li a {
+  color: #fff; /* Color blanco */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: bold; /* Negrita */
+  transition: color 0.3s; /* Transición suave al cambiar color */
+}
+
+/* 🎯 Efecto al pasar el mouse sobre los enlaces */
+.nav-links li a:hover {
+  color: #ffcc00; /* Color dorado */
+}
+
+/* 🎬 Hero - sección de bienvenida con video de fondo */
+.hero {
+  position: relative;
+  height: 50vh; /* Altura: mitad de la pantalla */
+  overflow: hidden; /* Oculta contenido que se desborde */
+}
+
+/* 🎞️ Estilo del video de fondo */
+#video-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste del video sin deformación */
+  top: 0;
+  left: 0;
+  z-index: -2; /* Por detrás del contenido */
+}
+
+/* 🧥 Capa oscura encima del video */
+.overlay {
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Por detrás del contenido pero encima del video */
+}
+
+/* 📢 Contenido central del hero */
+.hero-content {
+  position: relative;
+  top: 50%; /* A mitad vertical */
+  transform: translateY(-50%); /* Centrado vertical perfecto */
+  text-align: center; /* Texto centrado */
+  color: white; /* Texto blanco */
+}
+
+/* 🧾 Título principal del hero */
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+}
+
+/* 📄 Párrafo del hero */
+.hero-content p {
+  font-size: 1.5rem;
+  margin: 20px 0; /* Espaciado superior e inferior */
+}
+/* 🔘 Botón principal del hero */
+.btn {
+  background: #ffcc00; /* Color dorado */
+  padding: 10px 20px; /* Espaciado interior */
+  color: #000; /* Texto negro */
+  font-weight: bold;
+  border: none; /* Sin borde */
+  text-decoration: none; /* Sin subrayado */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background 0.3s; /* Transición al hacer hover */
+}
+
+/* 🔘 Efecto hover del botón */
+.btn:hover {
+  background: #e6b800; /* Dorado más oscuro */
+}
+
+/* 🧱 Estilos generales para todas las secciones */
+section {
+  padding: 80px 20px; /* Espaciado interno */
+  text-align: center; /* Texto centrado */
+}
+
+/* 🧑‍🍳 Sección "Sobre Nosotros" con diseño responsive */
+.about .container {
+  display: flex; /* Flexbox para organización horizontal */
+  flex-wrap: wrap; /* Permite que los elementos bajen en pantallas pequeñas */
+  gap: 30px; /* Espacio entre columnas */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🖼️ Imagen en la sección About */
+.about img {
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  object-fit: cover; /* Ajusta imagen sin distorsión */
+  border-radius: 10px;
+}
+
+/* 📝 Texto al lado de la imagen */
+.about .text {
+  max-width: 500px;
+  text-align: left; /* Alineación a la izquierda */
+}
+
+/* 🍽️ Estilos comunes para títulos de secciones */
+.menu h2,
+.servicios h2,
+.testimonios h2,
+.horarios h2 {
+  font-family: 'Playfair Display', serif; /* Fuente elegante */
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+}
+/* 🍕 Contenedor de los ítems del menú */
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* 🍝 Estilo para cada ítem del menú */
+.menu-items .item {
+  max-width: 280px;
+  background: #fafafa;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.3s;
+}
+
+/* 🎯 Efecto de "levitar" al hacer hover */
+.menu-items .item:hover {
+  transform: translateY(-5px); /* Levanta ligeramente el ítem */
+}
+
+/* 📷 Imagen dentro del ítem de menú */
+.menu-items img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* 🛠️ Sección de servicios con tarjetas */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* 📇 Tarjeta individual de servicio */
+.card {
+  max-width: 300px;
+  background: #f5f5f5; /* Fondo gris claro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* 💬 Sección de testimonios */
+.testimonios blockquote {
+  font-style: italic;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 15px;
+  border-left: 4px solid #ffcc00; /* Barra vertical dorada */
+}
+
+/* 🔚 Pie de página */
+footer {
+  background: #111; /* Fondo negro */
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* 🌐 Íconos o enlaces sociales en el footer */
+footer .social {
+  margin-top: 10px;
+}
+
+/* 🔗 Enlaces en el footer */
+footer a {
+  color: #ffcc00; /* Dorado */
+  text-decoration: none;
+}
+
+/* 🔗 Efecto hover para enlaces del footer */
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Estilos responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Navbar en columna */
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column; /* Enlaces uno debajo del otro */
+    gap: 10px;
+  }
+
+  .about .container {
+    flex-direction: column; /* Imagen y texto en columna */
+  }
+
+  .hero-content h1 {
+    font-size: 2rem; /* Tamaño reducido del título */
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+}
