@@ -5,31 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mi tienda virtual</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap"
+  rel="stylesheet">
  
 </head>
 <body>
+ 
 
-  <!-- ESPACIO -->
-  <nav>
-    <div>store online</div>
-    <ul>
-      <a href="#menu">Ver Menú</a>
-    </ul>
-    <ul>
-      <a href="#carrito">carrito compras</a>
-    </ul>
-    <ul>
-      <a href="#envios">envios gratis</a>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">store online</div>
+    <ul class="nav-links">
+      <li><a href="#about">Nosotros</a></li>
+      <li><a href="#menu">menu</a></li>
+      <li><a href="#carrito">carrito de compras</a></li>
+      <li><a href="#envios">envios gratis</a></li>
     </ul>
   </nav>
 
    
 
   <!-- SOBRE NOSOTROS -->
-  <section id="about">
-    <div>
-      <img src="portadaStiloplus2.jpeg" alt="200" width="300">/>
-      <div>
+  <section class="about"id="about">
+    <div class="container">
+      <img src="carpetaimage/portadaStiloplus2.jpeg" alt="300">
+      <div class="text">
         <h2>Estilo Plus</h2>
         <p>En <strong>Estilo plus</strong> Nuestra tienda virtual ofrece una experiencia única de compras en línea, combinando lo mejor en calzado de moda y tecnología de última generación. Descubre sneakers, botas y zapatos para todos los estilos, junto a dispositivos electrónicos como smartphones, audífonos, laptops y más, todo en un solo lugar. Calidad, innovación y estilo al alcance de un clic.</p>
       </div>
@@ -38,50 +40,81 @@
 
 
   <!-- MENÚ -->
-  <section  id="menu">
+  <section class="menu" id="menu">
     <h2>menu</h2>
-    <div >
-      <div >
-        <img src="tenisMujer.jpeg" alt="200" width="300"/>
-        <h3>calzado para mujer</h3>
-        <p>calzado para toda clase de ocasion</p>
+    <div class="menu-items">
+      <div class="item">
+        <div class="card" style="width: 18rem;">
+   <img src="carpetaimage/tenisMujer.jpeg" class="card-img-top" alt="...">
+   <div class="card-body">
+    <h5 class="card-title">TENIS MUJER</h5>
+    <p class="card-text">Calsado para toda ocacion.</p>
+    <br>
+    <a href="#" class="btn btn-primary">Mirar productos</a>
+    </div>
+    </div>
+    </div>
+     <div class="item">
+      <div class="card" style="width: 18rem;">
+    <img src="carpetaimage/tenologia.jpeg" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title">TECNOLOGIA</h5>
+    <p class="card-text">Lo ultimo en tecnologia.</p>
+    <br>
+    <a href="#" class="btn btn-primary">Mirar productos</a>
+  </div>
+</div>
       </div>
-      <div >
-        <img src="tenologia.jpeg" alt="200"width="300"/>
-        <h3>tecnologia</h3>
-        <p>lo ultimo en tecnologia.</p>
+      <br>
+      <div class="item">
+        <div class="card" style="width: 18rem;">
+      <img src="carpetaimage/tenisHombre (2).jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+      <h5 class="card-title">TENIS HOMBRE</h5>
+      <p class="card-text">nuevas tendencias y estilos.</p>
+      <br>
+      <a href="#" class="btn btn-primary">Mirar productos</a>
       </div>
-      <div>
-        <img src="tenisHombre (2).jpeg" alt="200"width="300/>
-        <h3>calzado para hombre</h3>
-        <p>nuevas tendencias y estilos.</p>
-      </div>
+     
     </div>
   </section>
+  <br>
+  <br>
 
 
-   <section  id="carrito">
+   <section class="menu"id="carrito">
     <h2>carrito</h2>
-    <div >
-      <div >
-        <img src="" alt="producto"/>
-        <h3>agregar producto</h3>
-        <p>buscar arcticulos.</p>
+    <div clase="menu-items">
+      <div clase="items">
+        <img src="carpetaimage/Captura de pantalla 2025-06-22 203620.png" alt="50"/>
+        <br>
+        <button type="button" class="btn btn-primary">precio: $ 300.000</button>
+        
+        <div class="alert alert-primary" role="alert">
+          precio por temporada!
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-danger">COMPRAR</button>
+        <button type="button" class="btn btn-warning">AGREGAR ARTICULO</button>
+        <button type="button" class="btn btn-success">MIRAR MAS</button>
+        </div>
+        <br> 
+        <br>
       </div>
       <div >
-        <img src="promociones.jpeg" alt="200"width="300"/>
+        <img src="carpetaimage/promociones.jpeg" alt="200"width="300"/>
         <h3>productos en oferta</h3>
-        <p>promociones.</p>
+        <h3>promociones.</h3>
       </div>
       
     </div>
   </section>
 
   <!-- SERVICIOS -->
-  <section id="envios">
+  <section class="servicios"id="envios">
     <h2>envios</h2>
-    <div >
-      <div >
+    <div class="cards">
+      <div class="cards">
         <h3>envios gratis</h3>
         <p>haz tu primer compra con envio gratis.</p>
       </div> 
@@ -96,10 +129,14 @@
 
   <!-- FOOTER -->
   <footer>
-    <div >
+    <div class="social">
       <a href="#">Facebook</a> | 
       <a href="#">Instagram</a> | 
+      <a href="#">TripAdvisor</a>
     </div>
+    
   </footer>
+   
+
 </body>
 </html>

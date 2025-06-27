@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app logica</title>
+    <script src="./src/scripts/ModuloUsuario.js"></script>
+</head>
+<body>
+    <h1>Welcome to My App</h1>
+    <p>This is a simple application to demonstrate HTML structure.</p>
+    <div id="elementoLista"></div>
+    <ul id="elementoListaUL"></ul>
+    <script>
+        // Llamar a la función para procesar el usuario
+        //procesoUsuario();
+        loginUsuario()
+    </script>
+</body>
+</html>
