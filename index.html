@@ -12,6 +12,16 @@
  
 </head>
 <body>
+
+  <!-- 🧑‍💼 Login de usuario -->
+<div style="text-align: center; margin-top: 20px;">
+  <button onclick="loginUsuario()">Iniciar sesión</button>
+</div>
+
+<!-- Contenedor donde se mostrarán datos del usuario -->
+<div id="elementoLista"></div>
+<ul id="elementoListaUL"></ul>
+
  
 
   <!-- NAVBAR -->
@@ -24,6 +34,31 @@
       <li><a href="#envios">envios gratis</a></li>
     </ul>
   </nav>
+
+  <section id ="acceso-usuario" style="padding: 20px;">
+    <h2>👤 Acceso de Usuario</h2>
+    <div id="formularios-usuario" style="padding: 20px;">
+
+    <!--Registro -->
+    <div style="margin-bottom: 20px">
+      <h3>📝 Crear cuenta</h3>
+      <input  type="text" id="registro-usuario" placeholder="Usuario"/>
+      <input  type="password" id="registro-contrasena" placeholder="Contrasena"/>
+      <button onclick="registrarUsuario()">Registrarse</button>
+    </div>
+    
+
+    <!--Inicio de sesion-->
+      <div>
+        <h3>🔐 Iniciar sesión</h3>
+        <input type="text" id="login-usuario" placeholder="Usuario"/>
+        <input type="password" id="login-contrasena" placeholder="Contrasena"/>
+        <button onclick="iniciarSesion()">Entrar</button>
+      </div>
+      </div>
+      <!--Bienvenida + cerrar sesion -->
+      <div id="bienvenida" style="margin-top: 20px; font-weight: bold;"></div>
+  </section>
 
    
 
@@ -40,6 +75,8 @@
 
 
   <!-- MENÚ -->
+  
+
   <section class="menu" id="menu">
     <h2>menu</h2>
     <div class="menu-items">
@@ -80,35 +117,90 @@
   </section>
   <br>
   <br>
+  <div id="mensaje-agregado" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+  ✅ Producto agregado al carrito
+</div>
 
+ <section id="productos" class="productos">
+  <h2>🛍️ Productos Disponibles</h2>
+  <div class="lista-productos" id="lista-productos">
+    <!-- Aquí se agregarán los productos con JS -->
+  </div>
+</section>
 
-   <section class="menu"id="carrito">
-    <h2>carrito</h2>
-    <div clase="menu-items">
-      <div clase="items">
-        <img src="carpetaimage/Captura de pantalla 2025-06-22 203620.png" alt="50"/>
-        <br>
-        <button type="button" class="btn btn-primary">precio: $ 300.000</button>
-        
-        <div class="alert alert-primary" role="alert">
-          precio por temporada!
-        </div>
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <section class="menu" id="carrito">
+  <h2>🛒 Carrito</h2>
+
+  <!-- 🔽 Productos disponibles -->
+  <div class="menu-items">
+    <div class="item">
+      <img src="carpetaimage/Captura de pantalla 2025-06-22 203620.png" alt="Producto 1" width="300" />
+      <p>Precio: $300.000</p>
+      <div class="btn-group">
         <button type="button" class="btn btn-danger">COMPRAR</button>
-        <button type="button" class="btn btn-warning">AGREGAR ARTICULO</button>
-        <button type="button" class="btn btn-success">MIRAR MAS</button>
-        </div>
-        <br> 
-        <br>
+        <button
+          type="button"
+          class="btn btn-warning"
+          onclick="agregarProductoDesdeBoton('Tenis deportivos', 300000, 1)"
+        >
+          AGREGAR ARTÍCULO
+        </button>
+        <button type="button" class="btn btn-success">MIRAR MÁS</button>
       </div>
-      <div >
-        <img src="carpetaimage/promociones.jpeg" alt="200"width="300"/>
-        <h3>productos en oferta</h3>
-        <h3>promociones.</h3>
-      </div>
-      
     </div>
-  </section>
+
+    <div class="promo">
+      <img src="carpetaimage/promociones.jpeg" alt="Promociones" width="300" />
+      <h3>Productos en oferta</h3>
+      <h3>Promociones.</h3>
+    </div>
+
+    <div class="producto">
+      <h3>Tenis deportivos 2</h3>
+      <img src="carpetaimage/tenis1.jpg" alt="Tenis deportivos" width="200" />
+      <p>Precio: $300.000</p>
+      <button
+        type="button"
+        class="btn btn-warning"
+        onclick="agregarProductoDesdeBoton('Tenis deportivos 2', 300000, 1)"
+      >
+        AGREGAR ARTÍCULO
+      </button>
+    </div>
+  </div>
+
+  <!-- ✅ Mensaje de confirmación -->
+  <div id="mensaje-agregado" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+    ✅ Producto agregado al carrito
+  </div>
+
+  <!-- 🧾 Tabla de resumen del carrito -->
+  <div class="tabla-carrito">
+    <h3>Resumen de tu compra</h3>
+    <table class="tabla-carrito">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla">
+        <!-- JS añade productos aquí -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3"><strong>Total:</strong></td>
+          <td colspan="2">$<span id="total">0.00</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+
 
   <!-- SERVICIOS -->
   <section class="servicios"id="envios">
@@ -132,11 +224,15 @@
     <div class="social">
       <a href="#">Facebook</a> | 
       <a href="#">Instagram</a> | 
-      <a href="#">TripAdvisor</a>
+      <a href="#">X</a>
     </div>
     
   </footer>
    
+<script src="app/src/scripts/tabla de compras.js" defer></script> 
+<script src="app/src/scripts/ModuloUsuario.js" defer></script>
+<script src="app/src/scripts/producto.js" defer></script>
+<script src="app/src/scripts/productos.js" defer></script>
 
 </body>
 </html>

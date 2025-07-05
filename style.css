@@ -264,3 +264,121 @@ footer a:hover {
     font-size: 1.1rem;
   }
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 30px;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.formulario {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.formulario input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+}
+.formulario button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.formulario button:hover {
+  background-color: #0056b3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+th {
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
+  text-align: left;
+}
+td {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+.total {
+  font-size: 20px;
+  text-align: right;
+  font-weight: bold;
+}
+.actions-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.actions-bar button {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  background-color: #343a40;
+  color: white;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+.actions-bar button:hover {
+  background-color: #212529;
+}
+.formulario-producto input {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.tabla-carrito {
+  margin-top: 30px;
+}
+
+.tabla-carrito table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.lista-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tarjeta-producto {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  width: 220px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+

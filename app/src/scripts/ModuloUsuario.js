@@ -1,43 +1,71 @@
-function loginUsuario() {
-    // Simulación de un proceso de inicio de sesión
-    //const usuario = document.getElementById("usuario").value;
-    //const contrasena = document.getElementById("contrasena").value;
-    const usuario = prompt("Ingrese su usuario") // Simulación de usuario
-    const contrasena = prompt("Ingrese su contraseña") // Simulación de contraseña
-    if (usuario === "edgar" && contrasena === "1234") {
-        alert("Inicio de sesión exitoso")
-        procesoUsuario()
-    } else {
-        alert("Usuario o contraseña incorrectos")
-    }
-} 
+// Al cargar la página: verificar si hay usuario activo
+window.onload = function () {
+  const usuarioActivo = localStorage.getItem("usuarioActivo");
+  if (usuarioActivo) {
+    mostrarBienvenida(usuarioActivo);
+  }
+};
 
-function operacionUsuario() {
-    let datoEdad= prompt("Ingrese su edad");
-    let sumaEdad=parseInt(datoEdad) + 5;
-    alert(`Su edad en 5 años sera:${sumaEdad} `);
+function registrarUsuario() {
+  const usuario = document.getElementById("registro-usuario").value.trim();
+  const contrasena = document.getElementById("registro-contrasena").value;
+
+  if (!usuario || !contrasena) {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  const existente = usuarios.find(u => u.nombre === usuario);
+  if (existente) {
+    alert("Ese usuario ya está registrado.");
+    return;
+  }
+
+  usuarios.push({ nombre: usuario, contrasena: contrasena });
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  alert("Usuario registrado con éxito 🎉");
+
+  document.getElementById("registro-usuario").value = "";
+  document.getElementById("registro-contrasena").value = "";
 }
 
-function procesoUsuario(){
-            // variable para manejar el nombre del usuario
-            let usuario="edgar morillo"
-            //alert("Hola " + usuario + ", bienvenido a mi aplicación!");
-            //console.log("Hola " + usuario + ", bienvenido a mi aplicación!");
-            //document.write("Hola <b>" + usuario + "</b>, bienvenido a mi aplicación!");
-            //document.body.innerHTML += <p>Hola <b>${usuario}</b>, bienvenido a mi aplicación!</p>;
-            const lista = document.getElementById("elementoLista")
-            let contenido=""
-            // simulacion de datos que vienen de una base de datos del backend
-            for (let i = 1; i <= 10; i++) {
-                contenido += <p>Elemento ${i}</p>;
-            }
-            lista.innerHTML = contenido;
+function iniciarSesion() {
+  const usuario = document.getElementById("login-usuario").value.trim();
+  const contrasena = document.getElementById("login-contrasena").value;
 
-            // simulacion de cargar datos en una lista UL
-            const listaUL = document.getElementById("elementoListaUL");
-            for (let i = 1; i <= 10; i++) {
-                const li = document.createElement("li");
-                li.textContent = Item ${i};
-                listaUL.appendChild(li);
-            }
-        }
+  if (!usuario || !contrasena) {
+    alert("Por favor, ingresa tus datos.");
+    return;
+  }
+
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  const encontrado = usuarios.find(
+    u => u.nombre === usuario && u.contrasena === contrasena
+  );
+
+  if (encontrado) {
+    localStorage.setItem("usuarioActivo", usuario);
+    mostrarBienvenida(usuario);
+    alert("Inicio de sesión exitoso ✅");
+    document.getElementById("login-usuario").value = "";
+    document.getElementById("login-contrasena").value = "";
+  } else {
+    alert("Usuario o contraseña incorrectos ❌");
+  }
+}
+
+function mostrarBienvenida(nombre) {
+  document.getElementById("formularios-usuario").style.display = "none";
+  document.getElementById("bienvenida").innerHTML = `
+    Hola, <b>${nombre}</b> 👋 Bienvenido a Estilo Plus<br>
+    <button onclick="cerrarSesion()">Cerrar sesión</button>
+  `;
+}
+
+function cerrarSesion() {
+  localStorage.removeItem("usuarioActivo");
+  location.reload(); // Recarga la página para mostrar nuevamente los formularios
+}
